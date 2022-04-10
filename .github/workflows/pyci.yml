@@ -7,16 +7,10 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
-    strategy:
-      matrix:
-        # we want to test our package on several versions of Python
-        python-version: [3.8, 3.9]
     steps:
       - uses: actions/checkout@v2
-      - name: Set up Python ${{ matrix.python-version }}
+      - name: Set up Python
         uses: actions/setup-python@v2
-        with:
-          python-version: ${{ matrix.python-version }}
         # make depends on poetry
       - name: Install dependencies
         run: |
@@ -28,7 +22,7 @@ jobs:
       - name: Test & publish code coverage
         uses: paambaati/codeclimate-action@v2.7.4
         env:
-          CC_TEST_REPORTER_ID: ${{ secrets.CC_TEST_REPORTER_ID }}
+          CC_TEST_REPORTER_ID: f3a92c5df2892b3303505f8e37d1ddc4ff87f2446896cc419b5e5456d6ce7121
         with:
           coverageCommand: make test-coverage
           debug: true
