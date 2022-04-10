@@ -2,6 +2,7 @@
 
 [![Python CI](https://github.com/devriez/python-project-lvl3-2022/actions/workflows/pyci.yml/badge.svg)](https://github.com/devriez/python-project-lvl3-2022/actions/workflows/pyci.yml)
 [![Maintainability](https://api.codeclimate.com/v1/badges/759613acd10cf66838a6/maintainability)](https://codeclimate.com/github/devriez/python-project-lvl3-2022/maintainability)
+[![Test Coverage](https://api.codeclimate.com/v1/badges/759613acd10cf66838a6/test_coverage)](https://codeclimate.com/github/devriez/python-project-lvl3-2022/test_coverage)
 
 
 
