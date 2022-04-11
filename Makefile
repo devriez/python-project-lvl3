@@ -15,7 +15,7 @@ selfcheck:
 
 check: selfcheck test lint
 
-build: check
+build:
 	poetry build
 
 .PHONY: install test lint selfcheck check build
@@ -28,3 +28,5 @@ package-reinstall:
 
 page-loader:
 	poetry run page-loader
+
+.PHONY: page_loader

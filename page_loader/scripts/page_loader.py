@@ -1,15 +1,15 @@
-# -*- coding:utf-8 -*-
-
-"""An example script."""
-
-from hexlet_python_package import user
-
+import argparse
+from page_loader.page_loader import download
+import os
 
 def main():
-    """Run an example code."""
-    # it is ok to have some magical numbers locally
-    print(user.User(name='Bob', age=42).get_introduction())  # noqa:WPS432
+    parser = argparse.ArgumentParser(description='Download page')
+    parser.add_argument('url', type=str, help='set page url')
+    parser.add_argument('-o', '--output', help='set path for output', type=str,
+                        default=os.getcwd())
+    args = parser.parse_args()
 
+    download(args.url, args.output)
 
 if __name__ == '__main__':
     main()
