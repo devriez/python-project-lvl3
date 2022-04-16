@@ -1,7 +1,7 @@
 import os
 from page_loader.modules import make_dashname_from_url
 from page_loader.modules import file_save
-from page_loader.modules import make_saved_file_name
+from page_loader.modules import make_file_url_absolute
 from page_loader.modules import is_link_to_page
 from page_loader.modules import make_dir, read_page
 from bs4 import BeautifulSoup
@@ -17,13 +17,13 @@ def download(url, dir=os.getcwd()):
     logger.info(f'start func with pageurl:{url}, output_dir:{dir}')
 
     logger.info('making page_file_name and page_local_path')
-    page_file_name = make_dashname_from_url(url) + '.html'
+    page_file_name = make_dashname_from_url(url)
     page_file_path = os.path.join(dir, page_file_name)
     logger.info(f'page_file_name = {page_file_name}')
     logger.info(f'page_local_path = {page_file_path}')
 
     logger.info('making name and path of dir with files')
-    folder_name = make_dashname_from_url(url) + '_files'
+    folder_name = page_file_name[0:-5] + '_files'
     folder_path = os.path.join(dir, folder_name)
     logger.info(f'name {folder_name} and path {folder_path}')
 
@@ -53,7 +53,8 @@ def download(url, dir=os.getcwd()):
         attr = tags_with_attr[tag.name]
 
         if tag.has_attr(attr) and is_link_to_page(tag[attr], url):
-            file_name = make_saved_file_name(tag[attr], url)
+            file_url_absolute = make_file_url_absolute(url, tag[attr])
+            file_name = make_dashname_from_url(file_url_absolute)
             file_relative_path = os.path.join(folder_name, file_name)
             file_full_path = os.path.join(dir, file_relative_path)
             file_url = urljoin(url, tag[attr])

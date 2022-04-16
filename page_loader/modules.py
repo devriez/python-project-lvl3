@@ -3,6 +3,7 @@ import re
 import os
 import requests
 from page_loader.logger import get_logger
+from urllib.parse import urljoin
 
 logger = get_logger(__name__)
 
@@ -11,35 +12,25 @@ def make_dashname_from_url(url):
     url_without_ext, ext = os.path.splitext(url)
     url_object = urlparse(url_without_ext)
 
-    if len(url_object.scheme) == 0:
-        url_without_ext = 'https://' + url_without_ext
-
-    url_object = urlparse(url_without_ext)
-
-    if len(url_object.path) == 0:
+    if not (url_object.path):
         url_without_scheme = url_object.netloc + ext
     else:
         url_without_scheme = url_object.netloc + url_object.path
 
     url_normilized = re.sub('[^a-zA-Z0-9]', '-', url_without_scheme)
 
-    return url_normilized
+    if not (url_object.path) or not ext:
+        return url_normilized + '.html'
+    else:
+        return url_normilized + ext
 
 
-def make_saved_file_name(file_url, page_url):
-    file_url_without_ext, ext = os.path.splitext(file_url)
+def make_file_url_absolute(page_url, file_url):
 
-    file_url_object = urlparse(file_url)
-    file_netloc = file_url_object.netloc
-    page_url_object = urlparse(page_url)
-    page_netloc = page_url_object.netloc
+    if page_url[-1] != '/':
+        page_url += '/'
 
-    if file_netloc == page_netloc:
-        return (make_dashname_from_url(file_url_without_ext) + ext)
-
-    return (make_dashname_from_url(page_netloc)
-            + make_dashname_from_url(file_url_without_ext)  # noqa: W503
-            + ext)  # noqa: W503
+    return urljoin(page_url, file_url)
 
 
 def file_save(content, path):
