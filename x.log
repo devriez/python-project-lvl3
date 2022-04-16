@@ -1,0 +1,36 @@
+2022-04-16 19:00:02,825 - [INFO] - page_loader.page_loader - (page_loader.py).download - start func with pageurl:https://hexlet.io/courses, output_dir:/tmp/tmpru6uyclk
+2022-04-16 19:00:02,825 - [INFO] - page_loader.page_loader - (page_loader.py).download - making page_file_name 2022-04-16 19:00:02,987 - [INFO] - page_loader.modules - (modules.py).file_save - Source saved to file
+2022-04-16 19:00:04,720 - [ERROR] - page_loader.modules - (modules.py).read_page - Request to https://hexlet.io/courses returned: 100 None
+_local_path = /tmp/tmpru6uyclk/hexlet-io-courses.html
+2022-04-16 19:00:02,826 - [INFO] - page_loader.page_loader - (page_loader.py).download - making name and path of dir with files
+2022-04-16 19:00:02,826 - [INFO] - page_loader.page_loader - (page_loader.py).download - name hexlet-io-courses_files and path /tmp/tmpru6uyclk/hexlet-io-courses_files
+2022-04-16 19:00:02,835 - [INFO] - page_loader.page_loader - (page_loader.py).download - start create dirrectory
+2022-04-16 19:00:02,865 - [INFO] - page_loader.page_loader - (page_loader.py).download - directory created
+2022-04-16 19:00:02,866 - [INFO] - page_loader.page_loader - (page_loader.py).download - reading page
+2022-04-16 19:00:02,917 - [INFO] - page_loader.page_loader - (page_loader.py).download - page read
+2022-04-16 19:00:02,918 - [INFO] - page_loader.page_loader - (page_loader.py).download - changing links and saving sources
+2022-04-16 19:00:02,918 - [INFO] - page_loader.page_loader - (page_loader.py).download - page_url https://hexlet.io/courses and output_dir hexlet-io-courses_files
+2022-04-16 19:00:02,919 - [INFO] - page_loader.page_loader - (page_loader.py).download - links changed and sources saved
+2022-04-16 19:00:02,919 - [INFO] - page_loader.page_loader - (page_loader.py).download - saving html with local links
+2022-04-16 19:00:02,921 - [INFO] - page_loader.page_loader - (page_loader.py).download - html with local links saved
+2022-04-16 19:00:02,977 - [INFO] - page_loader.page_loader - (page_loader.py).download - start func with pageurl:https://ru.hexlet.io/courses, output_dir:/tmp/tmpzw17kyox
+2022-04-16 19:00:02,977 - [INFO] - page_loader.page_loader - (page_loader.py).download - making page_file_name and page_local_path
+2022-04-16 19:00:02,977 - [INFO] - page_loader.page_loader - (page_loader.py).download - page_file_name = ru-hexlet-io-courses.html
+2022-04-16 19:00:02,977 - [INFO] - page_loader.page_loader - (page_loader.py).download - page_local_path = /tmp/tmpzw17kyox/ru-hexlet-io-courses.html
+2022-04-16 19:00:02,977 - [INFO] - page_loader.page_loader - (page_loader.py).download - making name and path of dir with files
+2022-04-16 19:00:02,978 - [INFO] - page_loader.page_loader - (page_loader.py).download - name ru-hexlet-io-courses_files and path /tmp/tmpzw17kyox/ru-hexlet-io-courses_files
+2022-04-16 19:00:02,978 - [INFO] - page_loader.page_loader - (page_loader.py).download - start create dirrectory
+2022-04-16 19:00:02,978 - [INFO] - page_loader.page_loader - (page_loader.py).download - directory created
+2022-04-16 19:00:02,979 - [INFO] - page_loader.page_loader - (page_loader.py).download - reading page
+2022-04-16 19:00:02,981 - [INFO] - page_loader.page_loader - (page_loader.py).download - page read
+2022-04-16 19:00:02,983 - [INFO] - page_loader.page_loader - (page_loader.py).download - changing links and saving sources
+2022-04-16 19:00:02,983 - [INFO] - page_loader.page_loader - (page_loader.py).download - page_url https://ru.hexlet.io/courses and output_dir ru-hexlet-io-courses_files
+2022-04-16 19:00:04,710 - [INFO] - page_loader.page_loader - (page_loader.py).download - start func with pageurl:https://hexlet.io/courses, output_dir:/tmp/tmp2c2ga8f8
+2022-04-16 19:00:04,710 - [INFO] - page_loader.page_loader - (page_loader.py).download - making page_file_name and page_local_path
+2022-04-16 19:00:04,711 - [INFO] - page_loader.page_loader - (page_loader.py).download - page_file_name = hexlet-io-courses.html
+2022-04-16 19:00:04,711 - [INFO] - page_loader.page_loader - (page_loader.py).download - page_local_path = /tmp/tmp2c2ga8f8/hexlet-io-courses.html
+2022-04-16 19:00:04,712 - [INFO] - page_loader.page_loader - (page_loader.py).download - making name and path of dir with files
+2022-04-16 19:00:04,712 - [INFO] - page_loader.page_loader - (page_loader.py).download - name hexlet-io-courses_files and path /tmp/tmp2c2ga8f8/hexlet-io-courses_files
+2022-04-16 19:00:04,713 - [INFO] - page_loader.page_loader - (page_loader.py).download - start create dirrectory
+2022-04-16 19:00:04,713 - [INFO] - page_loader.page_loader - (page_loader.py).download - directory created
+2022-04-16 19:00:04,713 - [INFO] - page_loader.page_loader - (page_loader.py).download - reading page
