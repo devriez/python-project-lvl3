@@ -1,5 +1,5 @@
 from page_loader.modules import file_save, make_dashname_from_url
-from page_loader.modules import make_file_url_absolute
+from page_loader.modules import make_absolute_url
 from page_loader.modules import is_link_to_page
 from page_loader.modules import make_dir
 import pytest
@@ -27,15 +27,15 @@ def test_make_file_url_absolute():
 
     file_url = "/assets/professions/nodejs.png"
     result = 'https://ru.hexlet.io/assets/professions/nodejs.png'
-    assert make_file_url_absolute(page_url, file_url) == result
+    assert make_absolute_url(page_url, file_url) == result
 
     file_url = "https://ru.hexlet.io/packs/js/runtime.js"
     result = "https://ru.hexlet.io/packs/js/runtime.js"
-    assert make_file_url_absolute(page_url, file_url) == result
+    assert make_absolute_url(page_url, file_url) == result
 
     file_url = "assets/professions/nodejs.png"
     result = 'https://ru.hexlet.io/courses/assets/professions/nodejs.png'
-    assert make_file_url_absolute(page_url, file_url) == result
+    assert make_absolute_url(page_url, file_url) == result
   
 
 def test_is_link_to_our_page():

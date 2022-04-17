@@ -1,7 +1,7 @@
 import os
 from page_loader.modules import make_dashname_from_url
 from page_loader.modules import file_save
-from page_loader.modules import make_file_url_absolute
+from page_loader.modules import make_absolute_url
 from page_loader.modules import is_link_to_page
 from page_loader.modules import make_dir, read_page
 from bs4 import BeautifulSoup
@@ -14,6 +14,15 @@ bar = Bar('Processing', max=5)
 
 
 def download(url, dir=os.getcwd()):
+    '''
+    Save page locally and save local sources from this page
+    Parameters:
+        url: saved page url
+        dir: directory to save page and sources.
+             By default - current directory
+    Return: path to page saved locally
+    '''
+
     logger.info(f'start func with pageurl:{url}, output_dir:{dir}')
 
     logger.info('making page_file_name and page_local_path')
@@ -53,13 +62,12 @@ def download(url, dir=os.getcwd()):
         attr = tags_with_attr[tag.name]
 
         if tag.has_attr(attr) and is_link_to_page(tag[attr], url):
-            file_url_absolute = make_file_url_absolute(url, tag[attr])
+            file_url_absolute = make_absolute_url(url, tag[attr])
             file_name = make_dashname_from_url(file_url_absolute)
             file_relative_path = os.path.join(folder_name, file_name)
             file_full_path = os.path.join(dir, file_relative_path)
             file_url = urljoin(url, tag[attr])
             r = read_page(file_url)
-# здесь поменять на r.text для не картинок
             file_save(r.content, file_full_path)
             tag[attr] = file_relative_path
 

@@ -9,6 +9,14 @@ logger = get_logger(__name__)
 
 
 def make_dashname_from_url(url):
+    '''
+    All characters in URL except letters and numbers are replaced with '-'.
+    If the web page - '.html' appended at the end of the name.
+    If the local resource - '.{extension}' left at the end of the name.
+    Parameters:
+        url - page or local source URL
+    Return: modified name
+    '''
     url_without_ext, ext = os.path.splitext(url)
     url_object = urlparse(url_without_ext)
 
@@ -25,15 +33,28 @@ def make_dashname_from_url(url):
         return url_normilized + ext
 
 
-def make_file_url_absolute(page_url, file_url):
+def make_absolute_url(root_url, source_url):
+    '''
+    Make absolute url.
+    Parameters:
+        root_url - web pagr root directory
+        source_url - relative and absolute url
+    Return: absolute url
+    '''
 
-    if page_url[-1] != '/':
-        page_url += '/'
+    if root_url[-1] != '/':
+        root_url += '/'
 
-    return urljoin(page_url, file_url)
+    return urljoin(root_url, source_url)
 
 
 def file_save(content, path):
+    '''
+    Save content to file.
+    Parametrs:
+        content - content to save
+        path - file path for saving
+    '''
     try:
         with open(path, 'wb') as f:
             f.write(content)
@@ -49,12 +70,24 @@ def file_save(content, path):
 
 
 def is_link_to_page(link, page):
+    '''
+    Checks if a link leads to the web page.
+    Parameters:
+        link - absolute or relative url
+        page - page url
+    Return: true or false
+    '''
     link_netloc = urlparse(link).netloc
     page_netloc = urlparse(page).netloc
     return (link_netloc == page_netloc) or (len(link_netloc) == 0)
 
 
 def make_dir(path):
+    '''
+    Creating directory
+    Parameters:
+        path - directory path
+    '''
     try:
         os.mkdir(path)
     except PermissionError:
@@ -68,6 +101,12 @@ def make_dir(path):
 
 
 def read_page(url):
+    '''
+    Read web page.
+    Parameters:
+        url - page url
+    Return: requst object
+    '''
     r = requests.get(url)
     if r.status_code != 200:
         msg = f"Request to {url} returned: {r.status_code} {r.reason}"
